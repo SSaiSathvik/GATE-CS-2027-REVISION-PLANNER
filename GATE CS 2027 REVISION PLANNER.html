@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GATE CS 2027 · 25+5 Day Plan</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#f6f1e7;--card:#fffdf8;--ink:#1d1b16;--mut:#6b655a;--line:#ddd3bf;--ac:#c2410c;--p1:#1f6f5c;--p2:#b4531a;--p3:#5b4b9a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15130f;--card:#1f1c16;--ink:#f2ecdf;--mut:#a39a88;--line:#3a3529;--ac:#fb923c;--p1:#4cc3a4;--p2:#fb923c;--p3:#a99cf0}}
+:root[data-theme="dark"]{--bg:#15130f;--card:#1f1c16;--ink:#f2ecdf;--mut:#a39a88;--line:#3a3529;--ac:#fb923c;--p1:#4cc3a4;--p2:#fb923c;--p3:#a99cf0}
+*{box-sizing:border-box}html{scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.5 "IBM Plex Sans",system-ui,sans-serif}
+header{padding:28px 16px 12px;max-width:1100px;margin:auto}
+h1{font:800 clamp(28px,6vw,48px)/1.05 Fraunces,Georgia,serif;margin:0 0 6px;letter-spacing:-.02em}
+.sub{color:var(--mut);margin:0 0 14px}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 16px}
+.bar>div{max-width:1100px;margin:auto;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.prog{flex:1;min-width:140px;height:8px;background:var(--line);border-radius:9px;overflow:hidden}.prog i{display:block;height:100%;width:0;background:var(--ac);transition:width .3s}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}.tabs button,.rst{font:500 13px "IBM Plex Sans",sans-serif;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:6px 12px;border-radius:99px;cursor:pointer}
+.tabs button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+main{max-width:1100px;margin:auto;padding:16px;display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr))}
+.note{grid-column:1/-1;border-left:4px solid var(--ac);background:var(--card);padding:10px 14px;border-radius:6px;font-size:14px}
+.day{background:var(--card);border:1px solid var(--line);border-top:5px solid var(--c);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:8px}
+.day.done{opacity:.6}
+.top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.dn{font:800 13px Fraunces,serif;color:var(--c);text-transform:uppercase;letter-spacing:.08em}
+.hr{font-size:12px;color:var(--mut)}
+.day h2{font:600 19px/1.2 Fraunces,Georgia,serif;margin:0}
+.day p{margin:0;font-size:14px}.lk{color:var(--mut);font-size:13px}.lk b{color:var(--ink)}
+.blk{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;font-size:13px;border-top:1px dashed var(--line);padding-top:8px}.blk b{font-variant-numeric:tabular-nums;color:var(--c)}
+.tests{display:flex;flex-direction:column;gap:4px;margin-top:2px}
+.t{display:flex;gap:8px;align-items:flex-start;font-size:13px;padding:5px 7px;border:1px solid var(--line);border-radius:7px}
+.t input{margin-top:3px;accent-color:var(--c);width:16px;height:16px;flex:none}
+.t a{color:var(--ink);text-decoration:none;flex:1}.t a:hover{text-decoration:underline}
+.t.ck a{text-decoration:line-through;color:var(--mut)}
+.dd{margin-top:auto;font-size:13px;display:flex;gap:8px;align-items:center;color:var(--mut)}
+footer{max-width:1100px;margin:auto;padding:10px 16px 40px;color:var(--mut);font-size:13px}
+@media (max-width:420px){body{font-size:14px}.day{padding:12px}}
+</style></head><body>
+<header><h1>GATE CS 2027<br>25 + 5 day plan</h1>
+<p class="sub">Topic-wise first: days 1–15 (6 h) study one cross-subject topic per day with its topic tests. Days 16–21 (12 h) run subject-wise tests. Days 22–25 clean up. No mocks. Spill days 26–30 are spare. Maths comes last.</p></header>
+<div class="bar"><div><div class="tabs" id="tabs"></div><div class="prog"><i id="pb"></i></div><span id="pt" class="hr"></span><button class="rst" id="rs">Reset</button></div></div>
+<main id="m"></main>
+<footer>Test links open gateoverflow.in by exam number. If one doesn’t open, use the series page: goclasses.in/s/pages/gate-cse-test-series. Compiler Subject Test 2 is marked “coming soon” there. Marks guide: Maths ≈14, Programming + DS ≈12, TOC ≈9, Networks ≈8.5, COA ≈8.5, then OS, DBMS, Digital, Algorithms ≈7 each, Compiler ≈5, Aptitude 15.</footer>
+<script>
+var N={1316:"DM T1 · Logic",1317:"DM T2 · Sets, relations, lattices",1318:"DM T3 · Groups",1319:"DM T4 · Combinatorics",1320:"DM T5 · Graph theory",1327:"DM Subject 1",1328:"DM Subject 2",1329:"DM Subject 3",2532:"Combinatorics Rapid 1",2534:"Combinatorics Rapid 2",
+1322:"Linear Algebra T1",1323:"Linear Algebra T2",2531:"Linear Algebra Rapid",1333:"Counting",1348:"Counting extra",1334:"Bayes, conditional prob.",1335:"Probability complete",1336:"Calculus",1337:"Eng Maths Subject 1",1338:"Eng Maths Subject 2",1339:"Eng Maths Subject 3",
+1341:"DL T1 · Boolean, minimization, numbers",1342:"DL T2 · Combinational",1343:"DL T3 · Sequential",2486:"DL T4 · Boolean extra",2538:"DL Rapid",1344:"DL Subject 1",1345:"DL Subject 2",1347:"DL Subject 3",
+1349:"DBMS T1 · Normalization",1350:"DBMS T2 · ER, integrity",1351:"DBMS T3 · SQL, TRC, RA",1352:"DBMS T4 · Indexing, B/B+",1353:"DBMS T5 · Transactions",1354:"DBMS Subject 1",1355:"DBMS Subject 2",1356:"DBMS Subject 3",
+1361:"C T1 · Control, operators",1362:"C T2 · Functions, recursion, pointers",1363:"C T3 · Pointers, strings, structs",1364:"C Subject 1",1365:"C Subject 2",1366:"C Subject 3",
+1389:"DS T1 · Linked list",1390:"DS T2 · Asymptotics, loops",1391:"DS T3 · Stack, queue",1414:"DS T4 · BST, AVL, heap",1415:"DS T5 · Hashing",2503:"DS Subject 1",2504:"DS Subject 2",2505:"DS Subject 3",
+2376:"Algo T1 · Divide and conquer",2375:"Algo T2 · Recurrences",2377:"Algo T3 · Greedy",2378:"Algo T4 · Dynamic programming",2494:"Algo Subject 1",2493:"Algo Subject 2",2495:"Algo Subject 3",
+1367:"TOC T1 · Finite automata",1368:"TOC T2 · Regex",1369:"TOC T3 · CFG, PDA",1370:"TOC T4 · Closure, language classes",1371:"TOC T5 · Decidability",2400:"TOC T6 · Countability",1372:"TOC Subject 1",1374:"TOC Subject 2",2467:"TOC Subject 3",
+1379:"Compiler T1 · Lexing, parsers",1380:"Compiler T2 · SDT, SDD",1381:"Compiler T3 · IR, SSA, optimisation",2522:"Compiler Subject 1",
+1382:"COA T1 · Addressing, control unit",1383:"COA T2 · Pipelining",1384:"COA T3 · Cache",1385:"COA T4 · I/O, disk",2544:"COA Subject 1",2543:"COA Subject 2",2542:"COA Subject 3",
+1386:"OS T1 · Scheduling",1387:"OS T2 · Sync, deadlock",1388:"OS T3 · Memory management",1413:"OS T4 · File system, fork",2560:"OS Rapid",2496:"OS Subject 1",2502:"OS Subject 2",2499:"OS Subject 3",
+1375:"CN T1 · IP, data link",1376:"CN T2 · Network layer",1377:"CN T3 · Routing, transport",1378:"CN T4 · Transport, application",2550:"CN Rapid 1",2552:"CN Rapid 2",2488:"CN Subject 1",2489:"CN Subject 2",2492:"CN Subject 3",
+2465:"Aptitude 1",2464:"Aptitude 2",2471:"Aptitude 3",2472:"Aptitude 4",2473:"Aptitude 5",2474:"Aptitude 6",2475:"Aptitude 7",2476:"Aptitude 8",2477:"Aptitude 9",2483:"Aptitude 10",
+1340:"Mixed 1 · Maths",2459:"Mixed 2 · CN, DBMS, TOC, CD",2460:"Mixed 3 · OS, COA, DL",2461:"Mixed 4 · C, DSA",
+1416:"Mock 1",1417:"Mock 2",1420:"Mock 3",1419:"Mock 4",1421:"Mock 5",2443:"Mock 6",2444:"Mock 7",2445:"Mock 8",2446:"Mock 9",2447:"Mock 10",2448:"Mock 11",2449:"Mock 12",2450:"Mock 13",2451:"Mock 14",2453:"Mock 15",2454:"Mock 16",2455:"Mock 17"};
+var P1=[["2.5 h","Study the topic once across all linked subjects"],["1 h","Previous-year questions on this topic"],["2 h","Topic tests below, then fix mistakes"],["0.5 h","Error log + 5-minute recall of yesterday"]];
+var P2=[["4 h","Subject tests below, timed"],["2 h","Analysis of each test"],["3 h","Study only the topics those tests exposed"],["1.5 h","Previous-year questions on those topics"],["1.5 h","Error log, formula sheets"]];
+var P3=[["2 h","Aptitude tests (if listed)"],["4 h","Previous-year questions by topic cluster"],["4 h","Weak-topic clean-up from your error log"],["2 h","Formula sheets, error log, recall"]];
+var P4=[["3 h","Leftover topic or subject tests"],["2 h","Analysis"],["2 h","Weak topics"],["1 h","Error log"]];
+var D=[
+[1,1,"Number systems and the datapath","Digital Logic + COA + C: Boolean minimisation, adders, fixed and floating point, ALU, control unit, integer overflow in C","Same circuits that build the ALU; same formats that cause C overflow",[1341,1342,2486,2538,1382,2465]],
+[2,1,"State machines to lexers","Digital + TOC + Compiler: sequential circuits, DFA/NFA, regular expressions, lexical analysis","A lexer is a DFA; a counter is an FSM",[1343,1367,1368,1379,2464]],
+[3,1,"Instruction execution and pointers","COA + C: pipelining and hazards, addressing modes, pointers and arrays in C","Pointer arithmetic is indexed and base addressing",[1383,1361,1362,2471]],
+[4,1,"The memory chain","COA + OS + DS: cache, TLB, virtual memory, paging, segmentation, file systems, disk","Cache, TLB and page table are the same idea at three levels",[1384,1385,1388,1413,2560,2472]],
+[5,1,"Recursion and the stack","C + DS + Algorithms + TOC + Compiler: recursion tracing, stacks, recurrences, PDA, runtime stack","A PDA is a stack machine; recursion is the call stack",[1363,1391,2375,1369,2473]],
+[6,1,"Trees, heaps, hashing and indexes","DS + Algorithms + DBMS: BST, AVL, heaps, hashing, sorting, B/B+ tree indexing","Heap sort uses heaps; DB indexes use trees and hashing",[1389,1390,1414,1415,1352,2376,2474]],
+[7,1,"Graphs and routing","Algorithms + Networks: greedy, MST, shortest paths, IP, distance vector, link state","Routing protocols run Dijkstra and Bellman-Ford",[2377,1375,1376,1377,2475]],
+[8,1,"Dynamic programming to undecidability","Algorithms + TOC: DP, NP-completeness, decidability, reductions, countability","Reductions are the shared tool",[2378,1370,1371,2400,2476]],
+[9,1,"Parsing and code generation","TOC + Compiler: CFG, LL and LR, SDT, IR, SSA, data-flow, optimisation","Grammars from TOC drive parsers",[1380,1381,2477]],
+[10,1,"Concurrency everywhere","OS + DBMS: processes, scheduling, semaphores, deadlock, transactions, serializability, 2PL","Locks and semaphores solve the same problem",[1386,1387,1353,2483]],
+[11,1,"Relational model and queries","DBMS + Maths: ER, relational algebra, SQL, normal forms, functional dependencies","Relations come from set theory",[1349,1350,1351]],
+[12,1,"Transport, errors and applications","Networks + Digital: TCP, congestion, DNS, HTTP, parity, CRC, Hamming code","Error detection reuses Boolean and XOR ideas",[1378,2550,2552]],
+[13,1,"Logic, sets and algebra","Maths: propositional and first-order logic, sets, relations, lattices, groups","Boolean algebra, relational algebra, closure in TOC",[1316,1317,1318]],
+[14,1,"Counting and graphs","Maths: combinatorics, recurrences, generating functions, graph theory","Recurrences return in algorithms; graphs in routing",[1319,1320,2532,2534]],
+[15,1,"Linear algebra, calculus, probability","Maths: eigenvalues, LU, limits, maxima, distributions, Bayes, counting","Probability feeds hashing and expected-time analysis",[1322,1323,2531,1336,1333,1348,1334,1335]],
+[16,2,"Subject tests: Digital Logic + COA","Subject-wise tests plus mixed OS/COA/DL test","",[1344,1345,1347,2544,2543,2542,2460]],
+[17,2,"Subject tests: C + Data Structures","Subject-wise tests plus mixed C/DSA test","",[1364,1365,1366,2503,2504,2505,2461]],
+[18,2,"Subject tests: Algorithms + TOC","Subject-wise tests","",[2494,2493,2495,1372,1374,2467]],
+[19,2,"Subject tests: Compiler + OS","Subject-wise tests","",[2522,2496,2502,2499]],
+[20,2,"Subject tests: DBMS + Networks","Subject-wise tests plus mixed CN/DBMS/TOC/CD test","",[1354,1355,1356,2488,2489,2492,2459]],
+[21,2,"Subject tests: Maths","Discrete Maths and Eng Maths subject tests plus mixed maths test","",[1327,1328,1329,1337,1338,1339,1340]],
+[22,3,"Catch-up day 1","Previous-year questions by cluster; weak-topic clean-up","",[]],
+[23,3,"Catch-up day 2","Previous-year questions by cluster; weak-topic clean-up","",[]],
+[24,3,"Catch-up day 3","Previous-year questions by cluster; weak-topic clean-up","",[]],
+[25,3,"Final day","Formula sheets, error log, light recall; no new topics","",[]],
+[26,4,"Spill 1","Any tests not finished yet, in subject order","",[]],
+[27,4,"Spill 2","Any tests not finished yet, in subject order","",[]],
+[28,4,"Spill 3","Any tests not finished yet, in subject order","",[]],
+[29,4,"Spill 4","Any tests not finished yet, in subject order","",[]],
+[30,4,"Spill 5","Last leftovers and final error-log pass","",[]]];
+var C={1:"var(--p1)",2:"var(--p2)",3:"var(--ac)",4:"var(--p3)"},H={1:"6 h",2:"12 h",3:"12 h",4:"6–8 h"},T={1:P1,2:P2,3:P3,4:P4};
+var S={};try{S=JSON.parse(localStorage.getItem("gcs27")||"{}")}catch(e){}
+function sv(){try{localStorage.setItem("gcs27",JSON.stringify(S))}catch(e){}}
+var f=0,m=document.getElementById("m");
+var tabs=[["All",0],["Topic days 1–15",1],["Subject tests 16–21",2],["Catch-up 22–25",3],["Spill 26–30",4]];
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+function draw(){var h="",tot=0,dn=0;
+if(f===0||f===1)h+='<div class="note">Test slots can overflow a short day. Do the first tests listed and carry the rest to the next day or a spill day. One aptitude test a day runs on Days 1–10 (Aptitude 1–10).</div>';
+D.forEach(function(d){if(f&&d[1]!==f&&!(f===3&&d[1]===3))return;
+var ids=d[5],ck=ids.filter(function(i){return S["t"+i]}).length;
+var ok=S["d"+d[0]];
+h+='<section class="day'+(ok?" done":"")+'" style="--c:'+C[d[1]]+'"><div class="top"><span class="dn">Day '+d[0]+'</span><span class="hr">'+H[d[1]]+' · '+ck+'/'+ids.length+' tests</span></div><h2>'+esc(d[2])+'</h2><p>'+esc(d[3])+'</p>'+(d[4]?'<div class="lk"><b>Connects:</b> '+esc(d[4])+'</div>':'')+'<div class="blk">'+T[d[1]].map(function(b){return'<b>'+b[0]+'</b><span>'+b[1]+'</span>'}).join("")+'</div><div class="tests">'+ids.map(function(i){var c=S["t"+i];return'<label class="t'+(c?" ck":"")+'"><input type="checkbox" data-t="'+i+'"'+(c?" checked":"")+'><a target="_blank" rel="noopener" href="https://gateoverflow.in/exam/'+i+'">'+N[i]+'</a></label>'}).join("")+'</div><label class="dd"><input type="checkbox" data-d="'+d[0]+'"'+(ok?" checked":"")+'> Day complete</label></section>'});
+m.innerHTML=h;
+var all={};D.forEach(function(d){d[5].forEach(function(i){all[i]=1});});
+var k=Object.keys(all);k.forEach(function(i){if(S["t"+i])dn++});
+document.getElementById("pb").style.width=(100*dn/k.length)+"%";
+document.getElementById("pt").textContent=dn+" / "+k.length+" tests";}
+m.addEventListener("change",function(e){var t=e.target,y=window.scrollY;if(t.dataset.t)S["t"+t.dataset.t]=t.checked;if(t.dataset.d)S["d"+t.dataset.d]=t.checked;sv();draw();window.scrollTo(0,y)});
+var tb=document.getElementById("tabs");
+tabs.forEach(function(t){var b=document.createElement("button");b.textContent=t[0];b.onclick=function(){f=t[1];[].forEach.call(tb.children,function(x){x.classList.remove("on")});b.classList.add("on");draw()};if(!t[1])b.className="on";tb.appendChild(b)});
+document.getElementById("rs").onclick=function(){if(confirm("Clear all ticks?")){S={};sv();draw()}};
+draw();
+</script></body></html>
